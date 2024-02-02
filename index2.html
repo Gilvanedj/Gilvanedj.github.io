@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+  
+    <meta name="description" content="Sistema Virtual de Aprendizagem para EJA.">
+    <meta name="keywords" content="EJA, CEMEJA, SEMED, Manaus, Amazonas, Escola. Educação, Jovens, Adultos">
+
+    <link rel="stylesheet" href="https://cdn.metroui.org.ua/v4/css/metro-all.min.css">
+<script src="scripts/metro/metro.js"></script>
+<!-- Firebase App (esse deve ser sempre incluído) -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-app-compat.js"></script>
+    
+
+<!-- Adicione os módulos do Firebase conforme necessário (por exemplo, authentication, firestore, etc.) -->
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-auth-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.7.1/firebase-firestore-compat.js"></script>
+<script src="scripts/autentica.js"></script>
+
+    <title>AVA CEMEJA</title>
+
+    <style>
+        .login-form {
+            width: 350px;
+            height: auto;
+            top: 50%;
+            margin-top: -160px;
+        }
+    </style>
+</head>
+<body class="h-vh-100 bg-brandColor2">
+
+    <form class="login-form bg-white p-6 mx-auto border bd-default win-shadow"
+          data-role="validator"
+          action="javascript:"
+          data-clear-invalid="2000"
+          data-on-error-form="invalidForm"
+          data-on-validate-form="validateForm">
+        <span class="mif-school mif-4x place-right" style="margin-top: -10px;"></span>
+        <h2 class="text-light">AVA CEMEJA</h2>
+        <span>Para professores</span>
+        <hr class="thin mt-4 mb-4 bg-white">
+        <div class="form-group">
+            <input type="text" id="email" data-role="input" data-prepend="<span class='mif-envelop'>" placeholder="Entre com seu email..." data-validate="required email">
+        </div>
+        <div class="form-group">
+            <input type="password" id="password" data-role="input" data-prepend="<span class='mif-key'>" placeholder="Entre com sua senha..." data-validate="required ">
+        </div>
+        <div class="form-group mt-10">
+            
+            <button class="button" onclick="login()">Entrar</button>
+        </div>
+    </form>
+
+    
+    <script>
+        function invalidForm(){
+            var form  = $(this);
+            form.addClass("ani-ring");
+            setTimeout(function(){
+                form.removeClass("ani-ring");
+            }, 1000);
+        }
+
+        function validateForm(){
+            $(".login-form").animate({
+                //opacity: 0
+            });
+        }
+
+
+    </script>
+
+</body>
+</html>
